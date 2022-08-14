@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include ideass_site *.css
+recursive-include ideass_site *.csv
+recursive-include ideass_site *.html
+recursive-include ideass_site *.ico
+recursive-include ideass_site *.js
+recursive-include ideass_site *.json
+recursive-include ideass_site *.md
+recursive-include ideass_site *.png
+recursive-include ideass_site *.py
+recursive-include ideass_site *.svg
+recursive-include ideass_site *.txt
+recursive-exclude ideass_site *.pyc
