@@ -6,6 +6,7 @@ app_publisher = "DFP"
 app_description = " "
 app_email = "developmentforpeople@gmail.com"
 app_license = "MIT"
+app_logo_url = "/assets/ideass_site/images/logos/ideass.svg"
 
 # Includes in <head>
 # ------------------
