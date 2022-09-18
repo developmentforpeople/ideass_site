@@ -1,0 +1,9 @@
+{
+  "dependencies": {},
+  "devDependencies": {
+    "buefy": "^0.9.22",
+    "crypto-js": "^4.1.1",
+    "nedb": "^1.8.0",
+    "vue-draggable": "^2.0.6"
+  }
+}
