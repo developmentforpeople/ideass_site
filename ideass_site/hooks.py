@@ -8,6 +8,15 @@ app_email = "developmentforpeople@gmail.com"
 app_license = "MIT"
 app_logo_url = "/assets/ideass_site/images/logos/ideass.svg"
 
+
+web_include_js = [
+	"web.test.bundle.js",
+]
+web_include_css = [
+	"web.test.bundle.css",
+]
+
+
 # Includes in <head>
 # ------------------
 

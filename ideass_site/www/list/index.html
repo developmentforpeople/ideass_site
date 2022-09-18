@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<link rel="shortcut icon" href="/assets/ideass_site/images/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/assets/ideass_site/images/favicon.ico" type="image/x-icon">
+	{{ include_style('web.test.bundle.css') }}
+</head>
+<body>
+	<p>Escribe como si fuera un editor de texto:</p>
+	<h2>list</h2>
+	<div id="edp-app" v-cloak>
+
+		<h2>list</h2>
+		<list></list>
+		<ul>
+			<strong>TODO:</strong>
+			<li>Seleccionar items</li>
+			<li>Copiar items</li>
+			<li>Pegar items</li>
+			<li>Pegar varias líneas que cree tantos items como saltos de líneas</li>
+			<li>Diseñar jerarquía (parent - childs)</li>
+			<li>Diseñar foco en listas</li>
+			<li>Implementar encriptación / contraseñas</li>
+		</ul>
+		<ul>
+			<strong>DONE:</strong>
+			<li>Líneas de texto que generan items (objetos)</li>
+			<li>Movimiento de cursor entre items</li>
+			<li>Enter crea nuevo ítem</li>
+			<li>Enter crea nuevo ítem. Si sucede en mitad de línea usa el caret (cursor) como punto de corte.</li>
+			<li>BackDel elimina ítem o fusiona actual con el superior. Posiciona cursor</li>
+			<li>Formateo capado (Ctrl + b,...)</li>
+			<li>Elimina espacios al final y principio de línea</li>
+		</ul>
+
+		<hr>
+
+		<h2>list2</h2>
+		<list2></list2>
+	
+		<hr>
+		<h2>relationships-gratis</h2>
+		<relationships-gratis></relationships-gratis>
+	
+	</div>
+	{{ include_script('web.test.bundle.js') }}
+</body>
+</html>
