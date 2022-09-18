@@ -76,6 +76,20 @@
 
 <script>
 
+// Vue2 to Vue3 polyfills
+let Vue = {
+	// Vue.set(item_vue, property_name, value)
+	set: (object, property_name, value) => {
+		object[property_name] = value
+	},
+	// Vue.delete(vueItem.$parent.item.children, vueItem.index)
+	// delete: (obj, key) => {
+	delete: (array, index) => {
+		// delete obj[key]
+		array.splice(index, 1)
+	}
+}
+
 // VUE KEYBOARD EVENTS
 // -------------------
 // .enter
@@ -285,7 +299,7 @@ const methods = {
 		}
 		this.item.children.splice(newIndex, 0, args.item ? args.item : { content: args.itemContent || '' })
 		// Focus when rendered
-		this.$nextTick(function() {
+		this.$nextTick(() => {
 			if (this.$children[newIndex]) {
 				this._setCaretPosition(0, this.$children[newIndex].$refs.item)
 			} else {
@@ -339,7 +353,9 @@ const methods = {
 				// Delete this item
 				this.deleteItem(this.index)
 				// Focus when rendered
-				this.$nextTick(function() {
+				debugger
+				this.$nextTick(() => {
+					debugger
 					this._setCaretPosition(-1, avobeItemVue.$children[avobeItemVue.$children.length - 1].$refs.item)
 				})
 			}
@@ -400,7 +416,7 @@ const methods = {
 				console.error('NO DEBERÍA PASAR POR AQUÍ!')
 			}
 		}
-		this.$nextTick(function() {
+		this.$nextTick(() => {
 			if (this.$parent.isOpen && this.isMultiline) {
 				console.log('Only "this"')
 				console.log('...recalculate: ' + this.item.content)
@@ -428,7 +444,7 @@ const methods = {
 			console.log('KEYBOARD: keyboardEnter + shift')
 			let postNewLineContent = this.item.content.substring(caretPosition)
 			Vue.set(this.item, 'content', this.item.content.substring(0, caretPosition) + "\n" + postNewLineContent)
-			this.$nextTick(function() {
+			this.$nextTick(() => {
 				this._setCaretPosition(caretPosition + 1, event.srcElement)
 			})
 		} else {
@@ -475,7 +491,7 @@ const methods = {
 				const belowItem = this.$parent.item.children[this.index + 1]
 				const contentLength = this.item.content.length
 				this.item.content += belowItem.content
-				this.$nextTick(function() {
+				this.$nextTick(() => {
 					this._setCaretPosition(contentLength)
 				})
 				if ('children' in belowItem && belowItem.children.length) {

@@ -42376,6 +42376,14 @@ export default {
   var List_default = __vue_component__10;
 
   // ../ideass_site/ideass_site/public/js/ListItem2.vue
+  var Vue = {
+    set: (object, property_name, value19) => {
+      object[property_name] = value19;
+    },
+    delete: (array, index) => {
+      array.splice(index, 1);
+    }
+  };
   var _setPropertyDown = function(property_name, value19 = null, items_vue = []) {
     if (items_vue) {
       console.log(`_setPropertyDown(${property_name}, ${value19}`);
@@ -42534,7 +42542,7 @@ export default {
         console.error("ZZZZ", [args, this]);
       }
       this.item.children.splice(newIndex, 0, args.item ? args.item : { content: args.itemContent || "" });
-      this.$nextTick(function() {
+      this.$nextTick(() => {
         if (this.$children[newIndex]) {
           this._setCaretPosition(0, this.$children[newIndex].$refs.item);
         } else {
@@ -42578,7 +42586,9 @@ export default {
           }
           avobeItemVue.item.children.push(Object.assign({}, JSON.parse(JSON.stringify(this.item))));
           this.deleteItem(this.index);
-          this.$nextTick(function() {
+          debugger;
+          this.$nextTick(() => {
+            debugger;
             this._setCaretPosition(-1, avobeItemVue.$children[avobeItemVue.$children.length - 1].$refs.item);
           });
         }
@@ -42600,7 +42610,7 @@ export default {
           console.error("NO DEBER\xCDA PASAR POR AQU\xCD!");
         }
       }
-      this.$nextTick(function() {
+      this.$nextTick(() => {
         if (this.$parent.isOpen && this.isMultiline) {
           console.log('Only "this"');
           console.log("...recalculate: " + this.item.content);
@@ -42625,7 +42635,7 @@ export default {
         console.log("KEYBOARD: keyboardEnter + shift");
         let postNewLineContent = this.item.content.substring(caretPosition);
         Vue.set(this.item, "content", this.item.content.substring(0, caretPosition) + "\n" + postNewLineContent);
-        this.$nextTick(function() {
+        this.$nextTick(() => {
           this._setCaretPosition(caretPosition + 1, event.srcElement);
         });
       } else {
@@ -42670,7 +42680,7 @@ export default {
           const belowItem = this.$parent.item.children[this.index + 1];
           const contentLength = this.item.content.length;
           this.item.content += belowItem.content;
-          this.$nextTick(function() {
+          this.$nextTick(() => {
             this._setCaretPosition(contentLength);
           });
           if ("children" in belowItem && belowItem.children.length) {
@@ -43145,7 +43155,7 @@ export default {
   var __vue_inject_styles__55 = function(inject) {
     if (!inject)
       return;
-    inject("data-v-f22b3b70_0", { source: "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* local styles */\n\n", map: { "version": 3, "sources": ["../ideass_site/ideass_site/public/js/ListItem2.vue"], "names": [], "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAuuBA,iBAAA", "file": "ListItem2.vue", "sourcesContent": [`<template>
+    inject("data-v-6ac34721_0", { source: "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* local styles */\n\n", map: { "version": 3, "sources": ["../ideass_site/ideass_site/public/js/ListItem2.vue"], "names": [], "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAuvBA,iBAAA", "file": "ListItem2.vue", "sourcesContent": [`<template>
 	<li
 		:class="{
 			'has-children': hasChildren,
@@ -43222,6 +43232,20 @@ export default {
 
 
 <script>
+
+// Vue2 to Vue3 polyfills
+let Vue = {
+	// Vue.set(item_vue, property_name, value)
+	set: (object, property_name, value) => {
+		object[property_name] = value
+	},
+	// Vue.delete(vueItem.$parent.item.children, vueItem.index)
+	// delete: (obj, key) => {
+	delete: (array, index) => {
+		// delete obj[key]
+		array.splice(index, 1)
+	}
+}
 
 // VUE KEYBOARD EVENTS
 // -------------------
@@ -43432,7 +43456,7 @@ const methods = {
 		}
 		this.item.children.splice(newIndex, 0, args.item ? args.item : { content: args.itemContent || '' })
 		// Focus when rendered
-		this.$nextTick(function() {
+		this.$nextTick(() => {
 			if (this.$children[newIndex]) {
 				this._setCaretPosition(0, this.$children[newIndex].$refs.item)
 			} else {
@@ -43486,7 +43510,9 @@ const methods = {
 				// Delete this item
 				this.deleteItem(this.index)
 				// Focus when rendered
-				this.$nextTick(function() {
+				debugger
+				this.$nextTick(() => {
+					debugger
 					this._setCaretPosition(-1, avobeItemVue.$children[avobeItemVue.$children.length - 1].$refs.item)
 				})
 			}
@@ -43547,7 +43573,7 @@ const methods = {
 				console.error('NO DEBER\xCDA PASAR POR AQU\xCD!')
 			}
 		}
-		this.$nextTick(function() {
+		this.$nextTick(() => {
 			if (this.$parent.isOpen && this.isMultiline) {
 				console.log('Only "this"')
 				console.log('...recalculate: ' + this.item.content)
@@ -43575,7 +43601,7 @@ const methods = {
 			console.log('KEYBOARD: keyboardEnter + shift')
 			let postNewLineContent = this.item.content.substring(caretPosition)
 			Vue.set(this.item, 'content', this.item.content.substring(0, caretPosition) + "\\n" + postNewLineContent)
-			this.$nextTick(function() {
+			this.$nextTick(() => {
 				this._setCaretPosition(caretPosition + 1, event.srcElement)
 			})
 		} else {
@@ -43622,7 +43648,7 @@ const methods = {
 				const belowItem = this.$parent.item.children[this.index + 1]
 				const contentLength = this.item.content.length
 				this.item.content += belowItem.content
-				this.$nextTick(function() {
+				this.$nextTick(() => {
 					this._setCaretPosition(contentLength)
 				})
 				if ('children' in belowItem && belowItem.children.length) {
@@ -43897,7 +43923,7 @@ export default {
 	// @import "../../scss/variables.scss";
 
 </style>
-`] }, media: void 0 }), inject("data-v-f22b3b70_1", { source: "/* global styles */\n\n/*# sourceMappingURL=ListItem2.vue.map */", map: { "version": 3, "sources": ["../ideass_site/ideass_site/public/js/ListItem2.vue", "ListItem2.vue"], "names": [], "mappings": "AA4uBA,kBAAA;;AC1uBA,wCAAwC", "file": "ListItem2.vue", "sourcesContent": [`<template>
+`] }, media: void 0 }), inject("data-v-6ac34721_1", { source: "/* global styles */\n\n/*# sourceMappingURL=ListItem2.vue.map */", map: { "version": 3, "sources": ["../ideass_site/ideass_site/public/js/ListItem2.vue", "ListItem2.vue"], "names": [], "mappings": "AA4vBA,kBAAA;;AC1vBA,wCAAwC", "file": "ListItem2.vue", "sourcesContent": [`<template>
 	<li
 		:class="{
 			'has-children': hasChildren,
@@ -43974,6 +44000,20 @@ export default {
 
 
 <script>
+
+// Vue2 to Vue3 polyfills
+let Vue = {
+	// Vue.set(item_vue, property_name, value)
+	set: (object, property_name, value) => {
+		object[property_name] = value
+	},
+	// Vue.delete(vueItem.$parent.item.children, vueItem.index)
+	// delete: (obj, key) => {
+	delete: (array, index) => {
+		// delete obj[key]
+		array.splice(index, 1)
+	}
+}
 
 // VUE KEYBOARD EVENTS
 // -------------------
@@ -44184,7 +44224,7 @@ const methods = {
 		}
 		this.item.children.splice(newIndex, 0, args.item ? args.item : { content: args.itemContent || '' })
 		// Focus when rendered
-		this.$nextTick(function() {
+		this.$nextTick(() => {
 			if (this.$children[newIndex]) {
 				this._setCaretPosition(0, this.$children[newIndex].$refs.item)
 			} else {
@@ -44238,7 +44278,9 @@ const methods = {
 				// Delete this item
 				this.deleteItem(this.index)
 				// Focus when rendered
-				this.$nextTick(function() {
+				debugger
+				this.$nextTick(() => {
+					debugger
 					this._setCaretPosition(-1, avobeItemVue.$children[avobeItemVue.$children.length - 1].$refs.item)
 				})
 			}
@@ -44299,7 +44341,7 @@ const methods = {
 				console.error('NO DEBER\xCDA PASAR POR AQU\xCD!')
 			}
 		}
-		this.$nextTick(function() {
+		this.$nextTick(() => {
 			if (this.$parent.isOpen && this.isMultiline) {
 				console.log('Only "this"')
 				console.log('...recalculate: ' + this.item.content)
@@ -44327,7 +44369,7 @@ const methods = {
 			console.log('KEYBOARD: keyboardEnter + shift')
 			let postNewLineContent = this.item.content.substring(caretPosition)
 			Vue.set(this.item, 'content', this.item.content.substring(0, caretPosition) + "\\n" + postNewLineContent)
-			this.$nextTick(function() {
+			this.$nextTick(() => {
 				this._setCaretPosition(caretPosition + 1, event.srcElement)
 			})
 		} else {
@@ -44374,7 +44416,7 @@ const methods = {
 				const belowItem = this.$parent.item.children[this.index + 1]
 				const contentLength = this.item.content.length
 				this.item.content += belowItem.content
-				this.$nextTick(function() {
+				this.$nextTick(() => {
 					this._setCaretPosition(contentLength)
 				})
 				if ('children' in belowItem && belowItem.children.length) {
@@ -44651,7 +44693,7 @@ export default {
 </style>
 `, "/* global styles */\n\n/*# sourceMappingURL=ListItem2.vue.map */"] }, media: void 0 });
   };
-  var __vue_scope_id__55 = "data-v-f22b3b70";
+  var __vue_scope_id__55 = "data-v-6ac34721";
   var __vue_module_identifier__55 = void 0;
   var __vue_is_functional_template__55 = false;
   function __vue_normalize__11(template, style3, script45, scope, functional, moduleIdentifier, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
@@ -46480,4 +46522,4 @@ export default {
  * derived from CryptoJS.mode.CTR
  * Jan Hruby jhruby.web@gmail.com
  */
-//# sourceMappingURL=web.test.bundle.LGCZDLND.js.map
+//# sourceMappingURL=web.test.bundle.6NE3DEQ3.js.map
