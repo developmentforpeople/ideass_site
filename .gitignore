@@ -5,4 +5,5 @@
 tags
 node_modules/
 ideass_site/docs/current
-ideass_site/public/dist/**
+dist/
+ideass_site/public/dist
