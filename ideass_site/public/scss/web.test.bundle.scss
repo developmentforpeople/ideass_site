@@ -1,7 +1,16 @@
 
-@import "../frappe/node_modules/bootstrap/scss/bootstrap";
+@import "../../../../frappe/node_modules/bootstrap/scss/bootstrap.scss";
+
+// FONTAWESOME FREE 5.15.4
+// IMPORTANT!!! execute this after adding any link to /node_modules/: bench --site local.ideass.info build
+//  so symlink to /node_modules/ will be created automatically within /sites/site/assets/
+$fa-font-path: "/assets/ideass_site/node_modules/@fortawesome/fontawesome-free/webfonts";
+$fa-font-size-base: $font-size-base;
+@import "../../../node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
+@import "../../../node_modules/@fortawesome/fontawesome-free/scss/regular.scss";
+@import "../../../node_modules/@fortawesome/fontawesome-free/scss/brands.scss";
+@import "../../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
 
 // body {
 // 	border: 10px solid red;
 // }
-

@@ -1,5 +1,7 @@
 {
-  "dependencies": {},
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "5.15.4"
+  },
   "devDependencies": {
     "buefy": "^0.9.22",
     "crypto-js": "^4.1.1",
