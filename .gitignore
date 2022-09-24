@@ -5,5 +5,7 @@
 tags
 node_modules/
 ideass_site/docs/current
-dist/
 ideass_site/public/dist
+ideass_site/public/dist/js
+ideass_site/public/dist/css
+ideass_site/public/dist/css-rtl
