@@ -1,6 +1,6 @@
 <template>
 	<div class="edp-component-app">
-		APP LOADED!<br>
+		APP VUE3 LOADED!<br>
 		<button @click="count++">{{ count }}</button>
 
 		<hr>
