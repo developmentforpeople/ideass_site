@@ -1,23 +1,16 @@
 <template>
-	<div class="edp-component-app">
-		<dfp-list></dfp-list>
-		<hr>
-
-		<button @click="count++">{{ count }}</button>
-		<test></test>
+	<div class="dfp-list-component">
+		DFP LIST LOADED!
 	</div>
 </template>
 
 <script>
-
-import DfpList from './DfpList.vue'
 
 const methods = {
 }
 
 const data = function() {
 	let data = {}
-	data.count = 1
 	return data
 }
 
@@ -28,12 +21,11 @@ const created = function() {
 }
 
 const components = {
-	DfpList,
 }
 
 // module.exports = {
 export default {
-	name: 'App',
+	name: 'DfpList',
 	data,
 	methods,
 	mounted,
@@ -44,9 +36,7 @@ export default {
 
 <style scoped>
 /* local styles */
-	.edp-component-app{
-		border: 1px solid red;
-	}
+
 </style>
 
 <style lang="scss" scoped>

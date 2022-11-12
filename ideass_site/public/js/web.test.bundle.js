@@ -66,9 +66,10 @@ console.log('inicializada?!', vueapp)
 // 	},
 // })
 
+// VUE 3
+
 // import { createApp } from 'vue'
 import { createApp, configureCompat } from '@vue/compat'
-// import { createApp } from 'vue/dist/vue.esm-bundler';
 configureCompat({ RENDER_FUNCTION: false })
 
 import Test from './Test.vue'
