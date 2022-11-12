@@ -12,7 +12,7 @@
 		<h2>Example</h2>
 		<div class="row my-5">
 			<div class="col-md-4">
-				<ul class="my-5">
+				<ul>
 					<list-item2 :item="item" :global="global"></list-item2>
 				</ul>
 				<h2>Import</h2>
@@ -22,14 +22,14 @@
 				<textarea class="export">{{minify(item)}}</textarea>
 			</div>
 			<div class="col-md-4">
-				<ul class="my-5">
+				<ul>
 					<list-item2 :item="item2" :global="global"></list-item2>
 				</ul>
 				<h2>Export</h2>
 				<textarea class="export">{{minify(item2)}}</textarea>
 			</div>
 			<div class="col-md-4">
-				<ul class="my-5">
+				<ul>
 					<list-item2 :item="item3" :global="global"></list-item2>
 				</ul>
 				<h2>Export</h2>
@@ -64,7 +64,7 @@
 // TODO: make an "item" prototype
 // const item = {
 // 	content: '',
-// }
+// } 
 
 class Global {
 	constructor() {
@@ -245,7 +245,7 @@ import ListItem2 from './ListItem2.vue'
 
 const methods = {
 	importSource() {
-		console.log('IMORT SOURCE!!!', this.source)
+		console.log('IMPORT SOURCE!!!', this.source)
 		let parsed = null
 		try {
 			parsed = JSON.parse(this.source)

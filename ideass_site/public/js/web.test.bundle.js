@@ -49,7 +49,7 @@ Vue.directive('focus', {
 // Vue.prototype.Tools = Tools
 let vueapp = new Vue({ router: new VueRouter({
 	scrollBehavior: (to, from, savedPosition) => false
-})}).$mount('#edp-app')
+})}).$mount('#vue2-app')
 console.log('inicializada?!', vueapp)
 // new Vue({ el: '#aef-app' })
 // })
@@ -57,7 +57,7 @@ console.log('inicializada?!', vueapp)
 
 // // Instantiate Vue app
 // const app = new Vue({
-// 	el: '#edp-app',
+// 	el: '#vue2-app',
 // 	// vuetify: new Vuetify(),
 // 	components: {
 // 		List,
@@ -65,3 +65,16 @@ console.log('inicializada?!', vueapp)
 // 		RelationshipsGratis,
 // 	},
 // })
+
+// import { createApp } from 'vue'
+import { createApp, configureCompat } from '@vue/compat'
+// import { createApp } from 'vue/dist/vue.esm-bundler';
+configureCompat({ RENDER_FUNCTION: false })
+
+import Test from './Test.vue'
+
+import App from './App.vue'
+
+const app_v3 = createApp(App)
+.component('Test', Test)
+.mount('#app')

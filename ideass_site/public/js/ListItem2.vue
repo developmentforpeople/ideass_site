@@ -76,19 +76,10 @@
 
 <script>
 
-// Vue2 to Vue3 polyfills
-let Vue = {
-	// Vue.set(item_vue, property_name, value)
-	set: (object, property_name, value) => {
-		object[property_name] = value
-	},
-	// Vue.delete(vueItem.$parent.item.children, vueItem.index)
-	// delete: (obj, key) => {
-	delete: (array, index) => {
-		// delete obj[key]
-		array.splice(index, 1)
-	}
-}
+// import { reactive } from 'vue'
+// import reactive from 'vue/dist/vue.js'
+// import reactive from 
+
 
 // VUE KEYBOARD EVENTS
 // -------------------
@@ -113,7 +104,8 @@ const _setPropertyDown = function(property_name, value=null, items_vue=[]) {
 	if (items_vue) {
 		console.log(`_setPropertyDown(${property_name}, ${value}`)
 		items_vue.forEach(item_vue => {
-			Vue.set(item_vue, property_name, value)
+			// Vue.set(item_vue, property_name, value)
+			item_vue[property_name] = value
 			_setPropertyDown(property_name, value, item_vue.$children)
 		})
 	}
@@ -169,7 +161,8 @@ const methods = {
 		} else if (!this.hasChildren || action === true && !this.isOpen) {
 			this.$emit('toggle-open-close', action)
 		} else {
-			Vue.set(this.item, '_closed', action === null ? this.isOpen : action)
+			// Vue.set(this.item, '_closed', action === null ? this.isOpen : action)
+			this.item._closed = action === null ? this.isOpen : action
 			this._setCaretPosition()
 		}
 	},
@@ -190,6 +183,7 @@ const methods = {
 			this.$parent.item.children.splice(this.index, 1)
 			// If root "children" leave at least one "item"
 			if (this.$parent.isRoot && !this.$parent.item.children.length) {
+				debugger
 				this.$parent.item.children.push({ content: '' })
 			}
 		}
@@ -211,7 +205,8 @@ const methods = {
 
 	deleteVueItem(vueItem) {
 		console.log('deleteVueItem()', vueItem)
-		Vue.delete(vueItem.$parent.item.children, vueItem.index)
+		// Vue.delete(vueItem.$parent.item.children, vueItem.index)
+		vueItem.$parent.item.children.splice(vueItem.index, 1)
 	},
 
 	mouseDragStart(event) {
@@ -276,7 +271,8 @@ const methods = {
 			} else {
 				item_vue_to.$parent.item.children.splice(item_vue_to.index, 0, Object.assign({}, item_vue_from.item))
 			}
-			Vue.delete(item_vue_from.$parent.item.children, item_vue_from.index + delete_index_correction)
+			// Vue.delete(item_vue_from.$parent.item.children, item_vue_from.index + delete_index_correction)
+			item_vue_from.$parent.item.children.splice(item_vue_from.index + delete_index_correction, 1)
 		// Nothing to drop!
 		} else {
 			// Make dragged subitems as droppables again 
@@ -310,13 +306,16 @@ const methods = {
 
 	parentDeleteItem(index) {
 		console.log(`parentDeleteItem(${index})`)
+		debugger
 		this.item.children.splice(index, 1)
 	},
 
 	deleteItem(index) {
 		console.log(`deleteItem(${index})`)
+		debugger
 		if (this.$parent.item) {
-			Vue.delete(this.$parent.item.children, index)
+			// Vue.delete(this.$parent.item.children, index)
+			this.$parent.item.children.splice(index, 1)
 		} else {
 			console.warn('Nothing to delete')
 		}
@@ -343,19 +342,22 @@ const methods = {
 				// let avobeItem = this.$parent.item.children[this.index - 1]
 				let avobeItemVue = this.$parent.$children[this.index - 1]
 				if (!avobeItemVue.hasChildren) {
-					Vue.set(avobeItemVue.item, 'children', [])
+					// Vue.set(avobeItemVue.item, 'children', [])
+					avobeItemVue.item.children = []
 				}
 				if (!avobeItemVue.isOpen) {
-					Vue.set(avobeItemVue.item, '_closed', false)
+					// Vue.set(avobeItemVue.item, '_closed', false)
+					avobeItemVue.item._closed = false
 				}
+				// debugger
 				// Create item's copy into above item children
-				avobeItemVue.item.children.push(Object.assign({}, JSON.parse(JSON.stringify(this.item))))
+				// avobeItemVue.item.children.push(Object.assign({}, JSON.parse(JSON.stringify(this.item))))
+				avobeItemVue.item.children.push(reactive({ content: this.item.content }))
+
 				// Delete this item
 				this.deleteItem(this.index)
 				// Focus when rendered
-				debugger
 				this.$nextTick(() => {
-					debugger
 					this._setCaretPosition(-1, avobeItemVue.$children[avobeItemVue.$children.length - 1].$refs.item)
 				})
 			}
@@ -443,7 +445,8 @@ const methods = {
 			const caretPosition = this._getCaretPosition()
 			console.log('KEYBOARD: keyboardEnter + shift')
 			let postNewLineContent = this.item.content.substring(caretPosition)
-			Vue.set(this.item, 'content', this.item.content.substring(0, caretPosition) + "\n" + postNewLineContent)
+			// Vue.set(this.item, 'content', this.item.content.substring(0, caretPosition) + "\n" + postNewLineContent)
+			this.item.content = this.item.content.substring(0, caretPosition) + "\n" + postNewLineContent
 			this.$nextTick(() => {
 				this._setCaretPosition(caretPosition + 1, event.srcElement)
 			})
@@ -457,7 +460,8 @@ const methods = {
 			}
 			let args = { index: this.index }
 			if (caretPosition != content.length || selected_text) {
-				Vue.set(this.item, 'content', content.substring(0, caretPosition))
+				// Vue.set(this.item, 'content', content.substring(0, caretPosition))
+				this.item.content = content.substring(0, caretPosition)
 				args.itemContent = content.substring(caretPosition)
 			}
 			this.$emit('parent-add-item', args)
@@ -495,7 +499,8 @@ const methods = {
 					this._setCaretPosition(contentLength)
 				})
 				if ('children' in belowItem && belowItem.children.length) {
-					Vue.set(this.item, 'children', belowItem.children)
+					// Vue.set(this.item, 'children', belowItem.children)
+					this.item.children = belowItem.children
 				}
 				this.deleteItem(this.index + 1)
 			}
@@ -562,7 +567,8 @@ const methods = {
 					item.item.content += fromItem.content
 				}
 				if ('children' in fromItem && fromItem.children.length > 0 && !item.hasChildren) {
-					Vue.set(item.item, 'children', fromItem.children)
+					// Vue.set(item.item, 'children', fromItem.children)
+					item.item.children = fromItem.children
 				}
 			}
 			item.$nextTick(function() {
@@ -740,6 +746,10 @@ const mounted = function() {
 // 	console.log('destroyed')
 // }
 
+// const setup = function() {
+// 	reactive(item)
+// }
+
 // module.exports = {
 export default {
 	name: 'ListItem2',
@@ -753,6 +763,7 @@ export default {
 	// beforeMount,
 	mounted,
 	// destroyed,
+	// setup,
 }
 </script>
 

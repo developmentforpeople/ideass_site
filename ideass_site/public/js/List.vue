@@ -1,22 +1,26 @@
 <template>
-	<div>
-		<list-item
-			v-for="item in items"
-			v-bind:key="item.id"
-			v-bind:item="item"
-			v-on:enter="itemAdd"
-			v-on:tab="tab"
-			v-on:shifttab="shifttab"
-			v-on:itemRemove="itemRemove"
-			v-on:itemRemoveBelow="itemRemoveBelow"
-			v-on:up="up"
-			v-on:down="down"
-			v-on:right="right"
-			v-on:left="left"
-			ref="items"
+	<div class="dfp-component-list row">
+		<div class="col-6">
+			<list-item
+				v-for="item in items"
+				v-bind:key="item.id"
+				v-bind:item="item"
+				v-on:enter="itemAdd"
+				v-on:tab="tab"
+				v-on:shifttab="shifttab"
+				v-on:itemRemove="itemRemove"
+				v-on:itemRemoveBelow="itemRemoveBelow"
+				v-on:up="up"
+				v-on:down="down"
+				v-on:right="right"
+				v-on:left="left"
+				ref="items"
 			></list-item>
-		<p><a href="#" @click.prevent="itemAdd">+</a></p>
-		<pre>{{ items }}</pre>
+			<p><a href="#" @click.prevent="itemAdd">+</a></p>
+		</div>
+		<div class="col-6">
+			<pre>{{ items }}</pre>
+		</div>
 	</div>
 </template>
 
@@ -195,16 +199,16 @@ export default {
 <style scoped>
 /* local styles */
 	pre {
-		position: fixed;
+		/* position: fixed;
 		top: 0;
-		right: 0;
-		width: 480px;
-		height: 100%;
-		overflow: visible;
+		right: 0; */
+		width: 100%;
+		height: 450px;
+		overflow: scroll;
 		border: 1px solid rgb(37, 66, 85);
-		z-index: 2000;
-		background-color: white;
-		padding: 4px;
+		/* z-index: 2000; */
+		/* background-color: white; */
+		/* padding: 4px; */
 	}
 
 </style>

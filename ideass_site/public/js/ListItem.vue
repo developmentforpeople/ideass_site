@@ -1,5 +1,5 @@
 <template>
-	<div class="item">
+	<div class="dfp-component-list-item item">
 		<div class="bullet">-</div>
 		<div class="editable"
 			ref="item"
