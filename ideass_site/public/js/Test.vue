@@ -1,42 +1,50 @@
-<template>
-	<div class="dfp-component-test">
-		TEST LOADED!
-	</div>
-</template>
 
 <script>
 
-const methods = {
-}
+import {
+	ref,
+	// // computed,
+	// onBeforeMount,
+	// onMounted,
+	// // onBeforeUpdateReactive,
+	// onUpdated,
+	// onBeforeUnmount,
+	// onUnmounted
+} from '@vue/compat'
 
-const data = function() {
-	let data = {}
-	data.items = []
-	return data
-}
-
-const mounted = function() {
-}
-
-const created = function() {
-	// debugger
-}
-
-const components = {
-}
-
-// module.exports = {
 export default {
-	name: 'Test',
-	data,
-	methods,
-	mounted,
-	created,
-	components,
+	expose: [], // No not expose anything to parents via ref()
+	props: {
+		title: String,
+		default: 'Un título por defecto'
+	},
+
+	setup(props) {
+		const count = ref(0)
+
+		console.log('setup() props.title', props.title)
+
+		// expose to template and other options API hooks
+		return {
+			count
+		}
+	},
+
+	mounted() {
+		console.log('mounted')
+		console.log('this.title', this.title)
+		console.log('this.count', this.count)
+	}
 }
 </script>
 
-<style scoped>
+
+<template>
+	<button @click="count++">{{ count }}</button>
+</template>
+
+
+<style lang="scss" scoped>
 /* local styles */
 
 </style>

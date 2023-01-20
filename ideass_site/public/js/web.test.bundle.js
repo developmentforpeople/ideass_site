@@ -79,3 +79,8 @@ import App from './App.vue'
 const app_v3 = createApp(App)
 .component('Test', Test)
 .mount('#app')
+
+app_v3.config.errorHandler = (err, instance, info) => {
+	// handle error, e.g. report to a service
+	alert('error config override!')
+}

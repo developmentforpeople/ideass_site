@@ -1,10 +1,14 @@
 <template>
 	<div class="edp-component-app">
-		<dfp-list></dfp-list>
-		<hr>
-
-		<button @click="count++">{{ count }}</button>
-		<test></test>
+		<div class="row">
+			<div class="col-6">
+				<DfpList :items="items"></DfpList>
+			</div>
+			<div class="col-6">
+				<Test title="mi título"></Test>
+				<pre>{{ items }}</pre>
+			</div>
+		</div>
 	</div>
 </template>
 
@@ -17,7 +21,7 @@ const methods = {
 
 const data = function() {
 	let data = {}
-	data.count = 1
+	data.items = []
 	return data
 }
 
